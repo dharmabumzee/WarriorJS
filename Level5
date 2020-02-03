@@ -1,0 +1,13 @@
+class Player {
+  
+  constructor() {
+    this.health = 0;
+  }
+
+  playTurn(warrior) {
+    warrior.feel().isEmpty() ? warrior.health() < warrior.maxHealth() && warrior.health() >= this.health 
+                             ? warrior.rest() : warrior.walk() : warrior.feel().getUnit().isEnemy() 
+                             ? warrior.attack() : warrior.feel().getUnit().isBound() && warrior.rescue();
+    this.health = warrior.health();
+  }
+}
